@@ -1,0 +1,102 @@
+body {
+  background-color:#ffffff;
+}
+
+
+.widget {
+
+  margin-left: 500px;
+  width: 500px;
+
+
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border: solid black 2px;
+  border-radius: 10px;
+  /* display: inline-block; */
+  padding: 10px;
+  background-color: white;
+
+  text-align: center;
+  color: black;
+
+  cursor: pointer;
+
+  font-size: 15px;
+
+}
+
+.widget:hover {
+  background-color: #F6F8FA;
+}
+
+.icon {
+  display: inline-block;
+  margin: 5px;
+}
+
+.username {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 23px;
+}
+
+.usernamePart {
+  display: inline-block;
+  background-color: #F6F8FA;
+  border-radius: 10px;
+  padding-right: 5px;
+}
+
+.usernamePart:hover {
+  background-color: gainsboro;
+}
+
+.repname {
+  display: inline-block;
+  font-size: 25px;
+  vertical-align: top;
+  margin-top: 18px;
+  margin-left: 40px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.topic {
+  display: inline-block;
+  background-color: #DDF4FF;
+  margin: 2px;
+  vertical-align: middle;
+  padding: 3px;
+  border-radius: 7px;
+  border: solid 2px;
+}
+
+.repnameTwo {
+  font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.inline {
+  display: inline-block;
+}
+
+.description {
+  font-size: 14px;
+}
+
+/*
+.additional {
+  display: block;
+}
+
+.additional div {
+  display: inline-block;
+}
+*/
+
+.additional {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+
+  margin-top: 5px ;
+  color: gray;
+}
