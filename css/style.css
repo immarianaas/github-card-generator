@@ -197,7 +197,7 @@ body {
   width: 50%;
   display: inline-block;
   height: 100%;
-  background-color: darkblue;
+  background-color: skyblue;
 }
 
 a {
@@ -208,4 +208,8 @@ a {
 
 .additional a:hover {
   text-decoration: underline;
+}
+
+pre {
+  background-color: white;
 }

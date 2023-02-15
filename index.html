@@ -149,6 +149,33 @@
 
   </script>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/dark.min.css">
+  <script type="module">
+    import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/es/highlight.min.js';
+    hljs.highlightAll();
+
+    const escapeHtml = (unsafe) => {
+      return unsafe.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
+    }
+
+    function genStaticHtml() {
+      console.log('hey');
+      let card = document.getElementById('card');
+
+      console.log(card.outerHTML);
+
+      let code = document.getElementById('staticcodeblock');
+      code.innerHTML = escapeHtml(card.outerHTML);
+      hljs.highlightBlock(code);
+
+    }
+
+
+    window.genStaticHtml = genStaticHtml;
+  </script>
+
+  <script></script>
+
   <!-- Link to your JS file -->
   <script src="scripts/script.js"></script>
 
@@ -226,7 +253,7 @@
   <!------------------ CARD PART ------------------>
   <div class="cardsection">
 
-    <div class="widget versionTwo" onclick="onClickCard()">
+    <div id="card" class="widget versionTwo" onclick="onClickCard()">
 
       <div class="header">
 
@@ -263,6 +290,15 @@
       </div>
 
     </div>
+
+
+    <button onclick="genStaticHtml()"> gen html
+    </button>
+
+    <pre><code class="html" id="staticcodeblock">
+      &lt;html&gt; &lt;p&gt; hello world  &lt;/p&gt; &lt;/html&gt;
+
+    </code></pre>
   </div>
 
 
