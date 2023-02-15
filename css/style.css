@@ -1,11 +1,16 @@
 body {
-  background-color:#ffffff;
+  background-color: #ffffff;
 }
 
 
 .widget {
 
-  margin-left: 500px;
+
+  /* margin-left: 500px; */
+  margin-left: 50px;
+  position: absolute;
+
+  top: 30%;
   width: 500px;
 
 
@@ -32,12 +37,23 @@ body {
 .icon {
   display: inline-block;
   margin: 5px;
+
+  vertical-align: middle;
+
+
 }
 
 .username {
   display: inline-block;
   vertical-align: top;
   margin-top: 23px;
+  margin: 0 auto;
+
+  text-align: center;
+  vertical-align: middle;
+
+  /*font-size: 20px; */
+
 }
 
 .usernamePart {
@@ -45,6 +61,21 @@ body {
   background-color: #F6F8FA;
   border-radius: 10px;
   padding-right: 5px;
+
+  vertical-align: middle;
+
+  text-align: center;
+  margin: 0 auto;
+
+
+}
+
+.usernamePart span {
+  text-align: center;
+  vertical-align: middle;
+  height: 100%;
+  margin: 0 auto;
+
 }
 
 .usernamePart:hover {
@@ -54,10 +85,32 @@ body {
 .repname {
   display: inline-block;
   font-size: 25px;
-  vertical-align: top;
+  vertical-align: middle;
   margin-top: 18px;
   margin-left: 40px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0 auto;
+
+
+}
+
+.repname span {
+  margin: 0 auto;
+  vertical-align: middle;
+
+}
+
+.repnameTwo {
+  font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  vertical-align: middle;
+  /* width: 100%; */
+
+  padding-left: 10px;
+  font-weight: 600;
+
+
+  
 }
 
 .topic {
@@ -70,16 +123,26 @@ body {
   border: solid 2px;
 }
 
-.repnameTwo {
-  font-size: 20px;
+.header {
+  vertical-align: middle;
+  margin: 0 auto;
+
+
+  
+}
+
+
+body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
 .inline {
   display: inline-block;
+  margin: 0 auto;
+
 }
 
 .description {
-  font-size: 14px;
 }
 
 /*
@@ -97,6 +160,52 @@ body {
   width: 100%;
   justify-content: space-evenly;
 
-  margin-top: 5px ;
+  margin-top: 5px;
   color: gray;
+}
+
+
+
+
+#form {
+  margin-top: 50%;
+  margin-left: 20%;
+}
+
+.form {
+  font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 800;
+
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  display: inline-block;
+  height: 100%;
+  background-color: darkmagenta;
+  color: white;
+}
+
+.cardsection {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  display: inline-block;
+  height: 100%;
+  background-color: darkblue;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+}
+
+.additional a:hover {
+  text-decoration: underline;
 }
