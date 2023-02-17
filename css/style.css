@@ -5,19 +5,9 @@ body {
 
 .widget {
 
-
-  /* margin-left: 500px; */
-  margin-left: 50px;
-  position: absolute;
-
-  top: 30%;
-  width: 500px;
-
-
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   border: solid black 2px;
   border-radius: 10px;
-  /* display: inline-block; */
   padding: 10px;
   background-color: white;
 
@@ -27,7 +17,23 @@ body {
   cursor: pointer;
 
   font-size: 15px;
+  width: 500px;
 
+  display: inline-block;
+
+  margin-top: 15%;
+
+
+}
+
+.container {
+
+  /* margin-left: 500px; 
+  margin-left: 50px; */
+
+
+  text-align: center;
+  
 }
 
 .widget:hover {
@@ -110,7 +116,7 @@ body {
   font-weight: 600;
 
 
-  
+
 }
 
 .topic {
@@ -128,7 +134,7 @@ body {
   margin: 0 auto;
 
 
-  
+
 }
 
 
@@ -142,8 +148,7 @@ body {
 
 }
 
-.description {
-}
+.description {}
 
 /*
 .additional {
@@ -168,14 +173,16 @@ body {
 
 
 #form {
-  margin-top: 50%;
-  margin-left: 20%;
+  margin-top: 40%;
+  margin-left: 0%;
 }
 
 .form {
   font-size: 20px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 800;
+
+  text-align: center;
 
 
   position: absolute;
@@ -198,6 +205,9 @@ body {
   display: inline-block;
   height: 100%;
   background-color: skyblue;
+
+  text-align: center;
+  align-items: center;
 }
 
 a {
@@ -210,6 +220,54 @@ a {
   text-decoration: underline;
 }
 
-pre {
+
+.codeBlock {
+  position: absolute;
+  top: 40%;
+  left: 5%;
+  width: 90%;
+
+  text-align: left;
+}
+
+.submitBtn {
+  border: black solid 2px;
+  border-radius: 5px;
+  padding: 10px;
+
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 800;
+
+  text-align: center;
+
+
+  margin: 20px;
+
+}
+
+.textInput {
+  border: black solid 2px;
+
+  border-radius: 5px;
+  padding: 10px;
+
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 500;
+
   background-color: white;
+
+  width: 30%;
+}
+
+.blue {
+
+  background-color: skyblue;
+  color: black;
+
+}
+
+.pink {
+  background-color: darkmagenta;
+  color: white;
+
 }
