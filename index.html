@@ -5,6 +5,8 @@
 <head>
   <meta charset="utf-8">
   <title>GitHub Card Generator</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
   <meta name="description"
     content="A fan-made generator for cards to display github repositories. Download your cards in PNG or copy the code to your website!">
   <meta name="author" content="immarianaas">
@@ -111,7 +113,8 @@
 
     window.onload = function () {
 
-      //document.getElementById("copiedMsg").hidden = true;
+      document.getElementById("copiedMsg").hidden = true;
+      document.getElementById("codeSection").hidden = true;
 
 
       updateCard(owner, repo);
@@ -180,6 +183,9 @@
       code.innerHTML = escapeHtml(code.outerHTML);
 
       hljs.highlightBlock(code);
+
+      document.getElementById("codeSection").hidden = false;
+
 
     }
 
@@ -338,46 +344,50 @@
     </div>
 
 
+    <div id="codeSection">
 
-    <div class="htmlContainer">
+
+      <div class="htmlContainer">
 
 
-      <div class="codeBlock">
+        <div class="codeBlock">
 
-        <div class="codeHeader">
-          <button class="copy" onclick="copyCode()">copy to clipboard</button>
-          <span id="copiedMsg">copied!</span>
+          <div class="codeHeader">
+            <button class="copy" onclick="copyCode()">copy to clipboard</button>
+            <span id="copiedMsg">copied!</span>
 
-        </div>
-        <div style="display: block; height: 5px;"></div>
+          </div>
+          <div style="display: block; height: 5px;"></div>
 
-        <pre>
+          <pre>
         <code class="html" id="staticcodeblock">
 
           <!-- &lt;html&gt; &lt;p&gt; hello world  &lt;/p&gt; &lt;/html&gt; -->
         </code>
       </pre>
+        </div>
+
       </div>
 
-    </div>
+      <div class="cssContainer">
+        <div class="codeBlock">
 
-    <div class="cssContainer">
-      <div class="codeBlock">
+          <div class="codeHeader">
+            <button class="copy" onclick="copyCode()">copy to clipboard</button>
+            <span id="copiedMsg">copied!</span>
 
-        <div class="codeHeader">
-          <button class="copy" onclick="copyCode()">copy to clipboard</button>
-          <span id="copiedMsg">copied!</span>
+          </div>
+          <div style="display: block; height: 5px;"></div>
 
-        </div>
-        <div style="display: block; height: 5px;"></div>
-
-        <pre>
+          <pre>
         <code class="html" id="staticcodeblock">
 
           <!-- &lt;html&gt; &lt;p&gt; hello world  &lt;/p&gt; &lt;/html&gt; -->
         </code>
       </pre>
+        </div>
       </div>
+
     </div>
 
   </div>
