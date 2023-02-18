@@ -216,11 +216,10 @@ a {
   height: 100%;
 }
 
-.additional a:hover {
-  text-decoration: underline;
-}
 
-.htmlContainer, .cssContainer {
+
+.htmlContainer,
+.cssContainer {
   width: 48%;
   display: inline-block;
   height: fit-content;
@@ -252,6 +251,8 @@ a {
 
 
   margin: 20px;
+
+  cursor: pointer;
 
 }
 
@@ -297,6 +298,8 @@ a {
   font-weight: 500;
 
   text-align: center;
+  cursor: pointer;
+
 
 }
 
@@ -308,7 +311,7 @@ a {
   align-items: center;
   height: 30px;
 
-  
+
 }
 
 .codeHeader span {
@@ -320,4 +323,16 @@ a {
 
   font-weight: 500;
 
+}
+/*
+
+.link {
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+}
+*/
+
+.additional .link:hover {
+  text-decoration: underline;
 }

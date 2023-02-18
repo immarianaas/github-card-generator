@@ -101,9 +101,9 @@
         let watchers_url = 'https://github.com/' + owner + '/' + repo + '/watchers';
         let forks_url = 'https://github.com/' + owner + '/' + repo + '/network/members';
 
-        document.getElementById('additionalinfo').innerHTML += '<div class=""><a target="_blank" href="' + stargazers_url + '"><b>' + data.stargazers_count + '</b> stargazers</a></div>\n';
-        document.getElementById('additionalinfo').innerHTML += '<div class=""><a target="_blank" href="' + watchers_url + '"><b>' + data.watchers_count + '</b> watchers</a></div>\n';
-        document.getElementById('additionalinfo').innerHTML += '<div class=""><a target="_blank" href="' + forks_url + '"><b>' + data.forks_count + '</b> forks</a></div>\n';
+        document.getElementById('additionalinfo').innerHTML += '<div class="link" onclick="window.open(\'' + stargazers_url + '\');"><b>' + data.stargazers_count + '</b> stargazers</div>\n';
+        document.getElementById('additionalinfo').innerHTML += '<div class="link" onclick="window.open(\'' + watchers_url + '\');"><b>' + data.watchers_count + '</b> watchers</a></div>\n';
+        document.getElementById('additionalinfo').innerHTML += '<div class="link" onclick="window.open(\'' + forks_url + '\');"><b>' + data.forks_count + '</b> forks</a></div>\n';
 
 
       });
