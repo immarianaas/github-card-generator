@@ -187,7 +187,36 @@
     window.genStaticHtml = genStaticHtml;
   </script>
 
-  <script></script>
+  <script>
+
+    function convertToImage() {
+      var node = document.getElementById('card');
+
+      domtoimage.toPng(node, {
+        style: {
+          'margin-top': '0px'
+        }
+      })
+        .then(function (dataUrl) {
+
+          // var img = new Image();
+          // img.src = dataUrl;
+          // document.body.appendChild(img);
+
+          const link = document.createElement('a')
+          link.href = dataUrl
+          link.download = 'image file name here'
+          document.body.appendChild(link)
+          link.click()
+        })
+        .catch(function (error) {
+          console.error('oops, something went wrong!', error);
+        });
+    }
+
+  </script>
+
+  <script src="scripts/dom-to-image.js"></script>
 
   <!-- Link to your JS file -->
   <script src="scripts/script.js"></script>
@@ -301,31 +330,54 @@
 
       <div>
       </div>
-      <button class="submitBtn pink" onclick="genStaticHtml()"> show static HTML code
+      <button class="submitBtn pink" onclick="genStaticHtml()"> show static HTML & CSS code
       </button>
 
-      <button class="submitBtn pink"> download PNG (TODO)
+      <button class="submitBtn pink" onclick="convertToImage()"> download PNG
       </button>
     </div>
 
 
 
+    <div class="htmlContainer">
 
-    <div class="codeBlock">
 
-      <div class="codeHeader">
-        <button class="copy" onclick="copyCode()">copy to clipboard</button>
-        <span id="copiedMsg">copied!</span>
+      <div class="codeBlock">
 
-      </div>
-      <div style="display: block; height: 5px;"></div>
+        <div class="codeHeader">
+          <button class="copy" onclick="copyCode()">copy to clipboard</button>
+          <span id="copiedMsg">copied!</span>
 
-      <pre>
+        </div>
+        <div style="display: block; height: 5px;"></div>
+
+        <pre>
         <code class="html" id="staticcodeblock">
 
           <!-- &lt;html&gt; &lt;p&gt; hello world  &lt;/p&gt; &lt;/html&gt; -->
         </code>
       </pre>
+      </div>
+
+    </div>
+
+    <div class="cssContainer">
+      <div class="codeBlock">
+
+        <div class="codeHeader">
+          <button class="copy" onclick="copyCode()">copy to clipboard</button>
+          <span id="copiedMsg">copied!</span>
+
+        </div>
+        <div style="display: block; height: 5px;"></div>
+
+        <pre>
+        <code class="html" id="staticcodeblock">
+
+          <!-- &lt;html&gt; &lt;p&gt; hello world  &lt;/p&gt; &lt;/html&gt; -->
+        </code>
+      </pre>
+      </div>
     </div>
 
   </div>
