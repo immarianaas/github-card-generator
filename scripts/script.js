@@ -4,10 +4,15 @@
 
 // import { Octokit } from "@octokit/rest";
 
-window.onload = function () {
 
+
+function copyCode() {
+    let codeElem = document.getElementById('staticcodeblock');
+    navigator.clipboard.writeText(codeElem.textContent);
+
+
+    document.getElementById("copiedMsg").hidden = false;
 }
-
 
 
 
