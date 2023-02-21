@@ -17,32 +17,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.7/beautify-html.js"></script>
 
 
+  <!-- Link to your JS file -->
+  <script src="scripts/script.js"></script>
+
+
   <script type="module">
     import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
 
-    function mapToData(data) {
-      return {
-        name: data.name,
-        full_name: data.full_name,
-        owner: {
-          login: data.owner.login,
-          avatar_url: data.owner.avatar_url,
-          html_url: data.owner.html_url
-        },
-        html_url: data.html_url,
-        description: data.description,
-        stargazers_count: data.stargazers_count,
-        watchers_count: data.watchers_count,
-        topics: data.topics
-      };
-    }
-
     let octokit = new Octokit({});
     let owner = "immarianaas";
-
     let repo = "github-card-generator";
-
-
 
     function updateCard(owner, repo) {
       let answer = octokit.request('GET /repos/' + owner + '/' + repo, {
@@ -50,23 +34,15 @@
         repo: repo
       });
 
-      let githubData;
-
       answer.then(result => {
         console.log(result);
-        githubData = mapToData(result.data);
-        console.log(githubData);
 
         let data = result.data;
 
-
-        // document.getElementById('userLink').href = 'https://github.com/' + owner;
-        // document.getElementById('cardLink').href = 'https://github.com/' + owner + '/' + repo;
-
-        document.getElementById('owner').textContent = githubData.owner.login;
-        document.getElementById('repo-name').textContent = githubData.name;
-        document.getElementById('description').textContent = githubData.description;
-        document.getElementById('owneravatar').src = githubData.owner.avatar_url;
+        document.getElementById('owner').textContent = data.owner.login;
+        document.getElementById('repo-name').textContent = data.name;
+        document.getElementById('description').textContent = data.description;
+        document.getElementById('owneravatar').src = data.owner.avatar_url;
 
 
         let noPropFunc = "event.stopPropagation();";
@@ -80,12 +56,12 @@
 
         // cleanup topics
         document.getElementById('topics').innerHTML = "";
-        let topicsLength = githubData.topics.length;
+        let topicsLength = data.topics.length;
         for (let i = 0; i < topicsLength; i++) {
           // https://github.com/topics/
           let topic_code = '<span id="topic' + i + '"></span>\n';
           document.getElementById('topics').innerHTML += topic_code;
-          document.getElementById('topic' + i).textContent = githubData.topics[i];
+          document.getElementById('topic' + i).textContent = data.topics[i];
         }
 
         // reset additonal info
@@ -107,32 +83,18 @@
         document.getElementById('additional-info').innerHTML += '<div class="underline-hover" onclick="window.open(\'' + forks_url + '\'); ' + noPropFunc + '"><b>' + data.forks_count + '</b> forks</a></div>\n';
 
 
+      }).catch( error => {
+        handleFormError();
       });
 
     }
 
 
+
     window.onload = function () {
-
-      document.getElementById("copiedMsg").hidden = true;
-      document.getElementById("codeSection").hidden = true;
-
+      resetPage();
 
       updateCard(owner, repo);
-
-
-      /*
-      - readme      -> "has_wiki" ?
-      - licence     -> "licence.name"
-      - stars       -> "stargazers_count"
-      - watching    -> "watchers_count"
-      - forks       -> "forks_count"
-
-      - languages   -> https://api.github.com/repos/immarianaas/c-quiz-language/languages
-
-      - issues      -> "open_issues_count"
-      - contributors  -> "collaborators_url" ... req. auth.
-      */
 
     }
 
@@ -145,6 +107,7 @@
       repo = formData.get('repository').trim();
 
       updateCard(owner, repo);
+      resetPage();
     }
 
     function onClickCard() {
@@ -176,35 +139,34 @@
       let card = document.getElementById('card');
       let beautified_code = html_beautify(card.outerHTML, options);
 
-      let codeblock = document.getElementById('staticcodeblock');
+      let codeblock = document.getElementById('html-code-block');
       codeblock.innerHTML = escapeHtml(beautified_code);
       hljs.highlightElement(codeblock);
 
-      document.getElementById("codeSection").hidden = false;
+      let cssblock = document.getElementById('css-code-block');
+      let beautified_css = css_beautify(cssCode, options);
+      cssblock.innerHTML = beautified_css;
+      hljs.highlightElement(cssblock);
+
+      showCodeSection();
     }
 
     window.genStaticHtml = genStaticHtml;
   </script>
 
   <script>
-
     function convertToImage() {
       var node = document.getElementById('card');
 
       domtoimage.toPng(node, {
-        style: {
-          'margin-top': '0px'
-        }
-      })
+          style: {
+            'margin-top': '0px'
+          }
+        })
         .then(function (dataUrl) {
-
-          // var img = new Image();
-          // img.src = dataUrl;
-          // document.body.appendChild(img);
-
           const link = document.createElement('a')
           link.href = dataUrl
-          link.download = 'image file name here'
+          link.download = 'gh-card'
           document.body.appendChild(link)
           link.click()
         })
@@ -212,17 +174,13 @@
           console.error('oops, something went wrong!', error);
         });
     }
-
   </script>
 
   <script src="scripts/dom-to-image.js"></script>
 
-  <!-- Link to your JS file -->
-  <script src="scripts/script.js"></script>
-
   <!-- Link to your CSS file -->
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/style2.css">
+  <link rel="stylesheet" href="css/card-style.css">
 
 </head>
 
@@ -231,6 +189,12 @@
   <!------------------ FORM PART ------------------>
   <div class="form">
 
+    <div id="title">
+      GitHub Card Generator
+    </div>
+    <div>
+      Fan-made. To learn more click on the card!
+    </div>
 
     <form id="form" action="" onsubmit="onSubmitForm(); return false">
 
@@ -250,6 +214,12 @@
 
     </form>
 
+    <div id="error-msg">
+      <p> Hmmm... </p>
+      <p> There was an error with the request.
+        Probably the repository doesn't exist. </p>
+      <p> Can you please check the input again? :) </p>
+    </div>
   </div>
 
 
@@ -291,8 +261,8 @@
 
       </div>
 
-      <div>
-      </div>
+      <div></div>
+
       <button class="submitBtn pink" onclick="genStaticHtml()"> show static HTML & CSS code
       </button>
 
@@ -310,18 +280,16 @@
         <div class="codeBlock">
 
           <div class="codeHeader">
-            <button class="copy" onclick="copyCode()">copy to clipboard</button>
-            <span id="copiedMsg">copied!</span>
+            <button class="copy" onclick="copyHTMLCode()">copy to clipboard</button>
+            <span id="html-copiedMsg">copied!</span>
 
           </div>
           <div style="display: block; height: 5px;"></div>
 
           <pre>
-        <code class="html" id="staticcodeblock">
-
-          <!-- &lt;html&gt; &lt;p&gt; hello world  &lt;/p&gt; &lt;/html&gt; -->
-        </code>
-      </pre>
+            <code class="html" id="html-code-block">
+            </code>
+          </pre>
         </div>
 
       </div>
@@ -330,18 +298,16 @@
         <div class="codeBlock">
 
           <div class="codeHeader">
-            <button class="copy" onclick="copyCode()">copy to clipboard</button>
-            <span id="copiedMsg">copied!</span>
+            <button class="copy" onclick="copyCSSCode()">copy to clipboard</button>
+            <span id="css-copiedMsg" hidden>copied!</span>
 
           </div>
           <div style="display: block; height: 5px;"></div>
 
           <pre>
-        <code class="html" id="staticcodeblock">
-
-          <!-- &lt;html&gt; &lt;p&gt; hello world  &lt;/p&gt; &lt;/html&gt; -->
-        </code>
-      </pre>
+            <code class="css" id="css-code-block">
+            </code>
+          </pre>
         </div>
       </div>
 

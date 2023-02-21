@@ -1,5 +1,4 @@
 #card {
-
     background-color: white;
 
     /* border & size */
@@ -11,8 +10,7 @@
     /* center text */
     text-align: center;
 
-
-    /* font - dont know.. */
+    /* font */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 15px;
     color: black;
@@ -21,7 +19,6 @@
 #card:hover {
     background-color: #F6F8FA;
 }
-
 
 .pointer-cursor {
     cursor: pointer;
@@ -56,7 +53,6 @@
     vertical-align: middle;
 }
 
-
 #repo-name {
     display: inline-block;
     vertical-align: middle;
@@ -78,7 +74,6 @@
     border-radius: 7px;
     border: black solid 2px;
 }
-
 
 #additional-info {
     display: flex;
