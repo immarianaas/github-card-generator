@@ -1,13 +1,13 @@
 
 function resetPage() {
-    hide("error-msg");
+    document.getElementById("error-msg").hidden = true;
     hide("css-copiedMsg");
     hide("html-copiedMsg");
     document.getElementById("codeSection").hidden = true;
 }
 
 function handleFormError() {
-    show("error-msg");
+    document.getElementById("error-msg").hidden = false;
 }
 
 function copyHTMLCode() {
