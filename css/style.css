@@ -3,29 +3,6 @@ body {
 }
 
 
-.widget {
-
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  border: solid black 2px;
-  border-radius: 10px;
-  padding: 10px;
-  background-color: white;
-
-  text-align: center;
-  color: black;
-
-  cursor: pointer;
-
-  font-size: 15px;
-  width: 500px;
-
-  display: inline-block;
-
-  margin-top: 15%;
-
-
-}
-
 .container {
 
   /* margin-left: 500px; 
@@ -36,57 +13,8 @@ body {
 
 }
 
-.widget:hover {
-  background-color: #F6F8FA;
-}
-
-.icon {
-  display: inline-block;
-  margin: 5px;
-
-  vertical-align: middle;
 
 
-}
-
-.username {
-  display: inline-block;
-  vertical-align: top;
-  margin-top: 23px;
-  margin: 0 auto;
-
-  text-align: center;
-  vertical-align: middle;
-
-  /*font-size: 20px; */
-
-}
-
-.usernamePart {
-  display: inline-block;
-  background-color: #F6F8FA;
-  border-radius: 10px;
-  padding-right: 5px;
-
-  vertical-align: middle;
-
-  text-align: center;
-  margin: 0 auto;
-
-
-}
-
-.usernamePart span {
-  text-align: center;
-  vertical-align: middle;
-  height: 100%;
-  margin: 0 auto;
-
-}
-
-.usernamePart:hover {
-  background-color: gainsboro;
-}
 
 .repname {
   display: inline-block;
@@ -106,36 +34,7 @@ body {
 
 }
 
-.repnameTwo {
-  font-size: 20px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  vertical-align: middle;
-  /* width: 100%; */
 
-  padding-left: 10px;
-  font-weight: 600;
-
-
-
-}
-
-.topic {
-  display: inline-block;
-  background-color: #DDF4FF;
-  margin: 2px;
-  vertical-align: middle;
-  padding: 3px;
-  border-radius: 7px;
-  border: solid 2px;
-}
-
-.header {
-  vertical-align: middle;
-  margin: 0 auto;
-
-
-
-}
 
 
 body {
@@ -144,30 +43,9 @@ body {
 
 .inline {
   display: inline-block;
-  margin: 0 auto;
 
 }
 
-.description {}
-
-/*
-.additional {
-  display: block;
-}
-
-.additional div {
-  display: inline-block;
-}
-*/
-
-.additional {
-  display: flex;
-  width: 100%;
-  justify-content: space-evenly;
-
-  margin-top: 5px;
-  color: gray;
-}
 
 
 
@@ -333,6 +211,9 @@ a {
 }
 */
 
-.additional .link:hover {
-  text-decoration: underline;
+
+
+#card-container {
+  margin-top: 15%;
+  display: inline-block;
 }
