@@ -1,49 +1,3 @@
-
-function resetPage() {
-    hide("error-msg");
-    hide("css-copiedMsg");
-    hide("html-copiedMsg");
-    document.getElementById("codeSection").hidden = true;
-}
-
-function handleFormError() {
-    show("error-msg");
-}
-
-function copyHTMLCode() {
-    let codeElem = document.getElementById('html-code-block');
-    navigator.clipboard.writeText(codeElem.textContent);
-
-    hide("css-copiedMsg");
-    show("html-copiedMsg");
-}
-
-function copyCSSCode() {
-    let codeElem = document.getElementById('css-code-block');
-    navigator.clipboard.writeText(codeElem.textContent);
-
-    show("css-copiedMsg");
-    hide("html-copiedMsg");
-}
-
-
-function showCodeSection() {
-    hide("css-copiedMsg");
-    hide("html-copiedMsg");
-    document.getElementById("codeSection").hidden = false;
-}
-
-
-function hide(id) {
-    document.getElementById(id).style.display = 'none';
-}
-
-function show(id) {
-    document.getElementById(id).style.display = '';
-}
-
-let cssCode =
-    `
 #card {
     background-color: white;
 
@@ -133,4 +87,3 @@ let cssCode =
 .underline-hover:hover {
     text-decoration: underline;
 }
-`;

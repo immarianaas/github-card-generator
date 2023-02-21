@@ -3,139 +3,37 @@ body {
 }
 
 
-.widget {
 
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  border: solid black 2px;
-  border-radius: 10px;
-  padding: 10px;
-  background-color: white;
+.cardsection {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 70%;
+  display: inline-block;
+  height: 100%;
+  background-color: skyblue;
 
   text-align: center;
-  color: black;
-
-  cursor: pointer;
-
-  font-size: 15px;
-  width: 500px;
-
-  display: inline-block;
-
-  margin-top: 15%;
-
+  align-items: center;
 
 }
+
 
 .container {
-
-  /* margin-left: 500px; 
-  margin-left: 50px; */
-
-
-  text-align: center;
-
+  height: 40vh;
 }
 
-.widget:hover {
-  background-color: #F6F8FA;
-}
 
-.icon {
+
+#card-container {
+
+  margin-top: 8vh;
+  margin-bottom: 0;
   display: inline-block;
-  margin: 5px;
-
-  vertical-align: middle;
-
-
 }
 
-.username {
-  display: inline-block;
-  vertical-align: top;
-  margin-top: 23px;
-  margin: 0 auto;
 
-  text-align: center;
-  vertical-align: middle;
-
-  /*font-size: 20px; */
-
-}
-
-.usernamePart {
-  display: inline-block;
-  background-color: #F6F8FA;
-  border-radius: 10px;
-  padding-right: 5px;
-
-  vertical-align: middle;
-
-  text-align: center;
-  margin: 0 auto;
-
-
-}
-
-.usernamePart span {
-  text-align: center;
-  vertical-align: middle;
-  height: 100%;
-  margin: 0 auto;
-
-}
-
-.usernamePart:hover {
-  background-color: gainsboro;
-}
-
-.repname {
-  display: inline-block;
-  font-size: 25px;
-  vertical-align: middle;
-  margin-top: 18px;
-  margin-left: 40px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin: 0 auto;
-
-
-}
-
-.repname span {
-  margin: 0 auto;
-  vertical-align: middle;
-
-}
-
-.repnameTwo {
-  font-size: 20px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  vertical-align: middle;
-  /* width: 100%; */
-
-  padding-left: 10px;
-  font-weight: 600;
-
-
-
-}
-
-.topic {
-  display: inline-block;
-  background-color: #DDF4FF;
-  margin: 2px;
-  vertical-align: middle;
-  padding: 3px;
-  border-radius: 7px;
-  border: solid 2px;
-}
-
-.header {
-  vertical-align: middle;
-  margin: 0 auto;
-
-
-
-}
 
 
 body {
@@ -144,36 +42,18 @@ body {
 
 .inline {
   display: inline-block;
-  margin: 0 auto;
 
 }
 
-.description {}
 
-/*
-.additional {
-  display: block;
+html,
+body {
+  max-height: 100%;
+  overflow: hidden;
 }
-
-.additional div {
-  display: inline-block;
-}
-*/
-
-.additional {
-  display: flex;
-  width: 100%;
-  justify-content: space-evenly;
-
-  margin-top: 5px;
-  color: gray;
-}
-
-
-
 
 #form {
-  margin-top: 40%;
+  margin-top: 15vh;
   margin-left: 0%;
 }
 
@@ -196,20 +76,6 @@ body {
   color: white;
 }
 
-.cardsection {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 70%;
-  display: inline-block;
-  height: 100%;
-  background-color: skyblue;
-
-  text-align: center;
-  align-items: center;
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -222,22 +88,31 @@ a {
 .cssContainer {
   width: 48%;
   display: inline-block;
-  height: fit-content;
 
   vertical-align: top;
+
+
 }
+
 
 .codeBlock {
-  /*
-  position: absolute;
-  top: 40%;
-  left: 5%;
-  width: 90%;
-  */
 
+  display: block;
   text-align: left;
   padding: 10px;
+  height: 100%;
+
 }
+
+code {
+  height: 45vh;
+
+  overflow: auto;
+  overflow-y: scroll;
+  overflow-x: auto;
+
+}
+
 
 .submitBtn {
   border: black solid 2px;
@@ -306,6 +181,7 @@ a {
 
 .codeHeader {
 
+  display: block;
   float: right;
 
   align-items: center;
@@ -324,15 +200,50 @@ a {
   font-weight: 500;
 
 }
-/*
 
-.link {
-  color: inherit;
-  text-decoration: none;
-  height: 100%;
+
+::-webkit-scrollbar {
+  width: 10px;
 }
-*/
 
-.additional .link:hover {
-  text-decoration: underline;
+::-webkit-scrollbar-track {
+  background: skyblue;
+}
+
+::-webkit-scrollbar-thumb {
+  background: darkmagenta;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: darkmagenta;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: skyblue;
+}
+
+
+
+#error-msg {
+
+  font-weight: 500;
+
+  font-size: 18px;
+  padding: 10px;
+  padding-top: 0;
+  margin: 15px;
+  margin-top: 0;
+
+}
+
+
+#title {
+
+  margin-top: 20vh;
+  font-size: 40px;
+  font-weight: 1000;
+
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+
 }
