@@ -66,7 +66,7 @@
         // reset additonal info
         document.getElementById('additional-info').innerHTML = "";
 
-        // adicionar languages
+        // [todo] add languages
 
         if (data.license) {
           document.getElementById('additional-info').innerHTML += '<div id="licence"></div>';
@@ -78,7 +78,7 @@
         let forks_url = 'https://github.com/' + owner + '/' + repo + '/network/members';
 
         document.getElementById('additional-info').innerHTML += '<div class="underline-hover" onclick="window.open(\'' + stargazers_url + '\'); ' + noPropFunc + '"><b>' + data.stargazers_count + '</b> stargazers</div>\n';
-        document.getElementById('additional-info').innerHTML += '<div class="underline-hover" onclick="window.open(\'' + watchers_url + '\'); ' + noPropFunc + '"><b>' + data.watchers_count + '</b> watchers</a></div>\n';
+        document.getElementById('additional-info').innerHTML += '<div class="underline-hover" onclick="window.open(\'' + watchers_url + '\'); ' + noPropFunc + '"><b>' + data.subscribers_count + '</b> watchers</a></div>\n';
         document.getElementById('additional-info').innerHTML += '<div class="underline-hover" onclick="window.open(\'' + forks_url + '\'); ' + noPropFunc + '"><b>' + data.forks_count + '</b> forks</a></div>\n';
 
 
